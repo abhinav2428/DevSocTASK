@@ -1,6 +1,5 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-//const MONGO_URL = "mongodb+srv://abhinavbhardwaj2805_db_user:hello1234@cluster01.avrissd.mongodb.net/"
 const express = require("express");
 const app = express();
 const item = require("./routes/items");
@@ -18,7 +17,6 @@ process.on(("uncaughtException"), (err) => {
     console.log(`Error: ${err.message}`);
     console.log("shutting down the server due to uncaught exception");
 });
-// const server = app.listen(PORT, () => {console.log("server is running on port", PORT)});
 
 mongoose.set("strictQuery", false);
 
