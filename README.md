@@ -15,7 +15,7 @@ Introduction
 
    ```env
     PORT=8800 
-    MONGO_URL="mongodb+srv://abhinavbhardwaj2805_db_user:hello1234@cluster01.avrissd.mongodb.net/"
+    MONGO_URL="your database url"
     JWT_SECRET_KEY="ee8ab388a8071c77d59d8e292044f52f"
     JWT_EXPIRES=7d
     RATE_LIMIT_WINDOW_MS=15*60*1000
