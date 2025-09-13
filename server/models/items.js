@@ -21,8 +21,8 @@ const itemSchema = new mongooose.Schema({
         type: String
     },
     date: {
-        type: Date, 
-        required: true
+        type: Date,
+        default: Date.now()
     },
     contact_info: {
         phone_no: {

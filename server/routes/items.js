@@ -39,7 +39,7 @@ router.get("/",authenticate, async(req, res) => {
 router.get("/:id",authenticate, async(req, res) => {
     try{
         const idparam = req.params.id;
-        const items = await Item.find({ id : idparam });
+        const items = await Item.findById(idparam);
         console.log(items);
         res.status(201).json({
         success: true,
@@ -54,8 +54,8 @@ router.get("/:id",authenticate, async(req, res) => {
 
 router.post("/", authenticate, async (req, res) => {
     try{
-        const {title, description, status, category, location, date, contact_info} = req.body;
-        if(!title || !status || !category || !date || !contact_info.phone_no){
+        const {title, description, status, category, location, contact_info} = req.body;
+        if(!title || !status || !category || !contact_info.phone_no){
             return res.status(400).json({
                 message: "Please provide all required fields"
             });
@@ -67,7 +67,7 @@ router.post("/", authenticate, async (req, res) => {
                 message: "User not found"
             });
         }  
-        const newItem = new Item({title, description, status, category, location, date, contact_info, created_by: user._id});
+        const newItem = new Item({title, description, status, category, location, contact_info, created_by: user._id});
         await newItem.save();
         res.status(200).json({
             message: "Item created successfully", 
